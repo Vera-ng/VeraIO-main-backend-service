@@ -3,10 +3,14 @@
 # ------------------------------------------------------
 
 type AccessToken {
-  """JWT access token"""
+  """
+  JWT access token
+  """
   accessToken: String!
 
-  """JWT refresh token"""
+  """
+  JWT refresh token
+  """
   refreshToken: String!
 }
 
@@ -354,8 +358,22 @@ input PostWhereUniqueInput {
 }
 
 type Query {
-  posts(cursor: PostWhereUniqueInput, distinct: [PostScalarFieldEnum!], orderBy: [PostOrderByWithRelationInput!], skip: Int, take: Int, where: PostWhereInput): [Post!]!
-  users(cursor: UserWhereUniqueInput, distinct: [UserScalarFieldEnum!], orderBy: [UserOrderByWithRelationInput!], skip: Int, take: Int, where: UserWhereInput): [User!]!
+  posts(
+    cursor: PostWhereUniqueInput
+    distinct: [PostScalarFieldEnum!]
+    orderBy: [PostOrderByWithRelationInput!]
+    skip: Int
+    take: Int
+    where: PostWhereInput
+  ): [Post!]!
+  users(
+    cursor: UserWhereUniqueInput
+    distinct: [UserScalarFieldEnum!]
+    orderBy: [UserOrderByWithRelationInput!]
+    skip: Int
+    take: Int
+    where: UserWhereInput
+  ): [User!]!
 }
 
 enum QueryMode {
@@ -432,7 +450,7 @@ input UpdateUserStatusInput {
 }
 
 type User {
-  _count: UserCount
+  _count: UserCount!
   createdAt: DateTime!
   detail: UserDetail
   email: String!
@@ -563,6 +581,7 @@ input UserDetailWhereInput {
 
 input UserDetailWhereUniqueInput {
   id: Int
+  userId: String
 }
 
 input UserOrderByWithRelationInput {
